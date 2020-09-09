@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pascal.mapper.FarmerMapper">
+    <select id="getFarmerByUid" resultType="com.pascal.bean.Farmer">
+        SELECT * FROM farmer WHERE uid=#{uid}
+    </select>
+
+    <update id="updateFarmerByUid" parameterType="com.pascal.bean.Farmer">
+        update farmer
+        <set>
+            family_number = #{farmer.family_number},
+            education_level = #{farmer.education_level},
+            labor_skill = #{farmer.labor_skill},
+            poverty_state = #{farmer.poverty_state},
+            poverty_cause = #{farmer.poverty_cause},
+            income = #{farmer.income},
+            score = #{farmer.score}
+        </set>
+        where uid = #{farmer.uid}
+    </update>
+</mapper>
